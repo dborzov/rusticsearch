@@ -55,7 +55,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "{[\n")
 	for _, word := range results {
 		fmt.Println("~~~~~~~~~~~~ ", word)
-		fmt.Fprintf(w, "    %s,\n", word)
+		fmt.Fprintf(w, "    \"%s\",\n", word)
 	}
 	fmt.Fprintf(w, "]}")
 }

@@ -18,7 +18,7 @@ var SearchEngine *ferret.InvertedSuffix
 
 func main() {
 	t := time.Now()
-	Data, err := ioutil.ReadFile("ferreto.txt")
+	Data, err := ioutil.ReadFile("search_index.csv")
 	if err != nil {
 		panic(err)
 	}
@@ -26,7 +26,7 @@ func main() {
 	Values := make([]interface{}, 0)
 	for _, Vals := range bytes.Split(Data, []byte("\n")) {
 		Vals = bytes.TrimSpace(Vals)
-		WordFreq := bytes.Split(Vals, []byte(" "))
+		WordFreq := bytes.Split(Vals, []byte("&&&"))
 		if len(WordFreq) != 2 {
 			continue
 		}

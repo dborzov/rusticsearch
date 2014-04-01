@@ -45,6 +45,9 @@ func main() {
 	t = time.Now()
 	fmt.Println(SearchEngine.Query("ar", 5))
 	fmt.Println("Performed search in:", time.Now().Sub(t))
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
+	fmt.Println("   Starting server...")
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(":8080", nil)
 }
@@ -52,10 +55,10 @@ func main() {
 func handler(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("ANOTHER REQUEST: /", r.URL.Path[1:])
 	results, _ := SearchEngine.Query(r.URL.Path[1:], 5)
-	fmt.Fprintf(w, "{[\n")
-	for _, word := range results {
+	fmt.Fprintf(w, "{\"products\":[\n")
+	for i, word := range results {
 		fmt.Println("~~~~~~~~~~~~ ", word)
-		fmt.Fprintf(w, "    \"%s\",\n", word)
+		fmt.Fprintf(w, "  {\"id\": \"%d\", \"name\": \"%s\"},\n", i, word)
 	}
 	fmt.Fprintf(w, "]}")
 }

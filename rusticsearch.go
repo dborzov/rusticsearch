@@ -53,6 +53,7 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(200)
 	fmt.Println("ANOTHER REQUEST: /", r.URL.Path[1:])
 	results, _ := SearchEngine.Query(r.URL.Path[1:], 5)
 	fmt.Fprintf(w, "{\"products\":[\n")

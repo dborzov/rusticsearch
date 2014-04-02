@@ -53,7 +53,12 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	w.WriteHeader(200)
+	h := w.Header()
+	h.Set("Access-Control-Allow-Origin", "*")
+	h.Set("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE, OPTIONS")
+	h.Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Date, Host, Authorization, Key, User-Token")
+	h.Set("Access-Control-Max-Age", "1728000")
+
 	fmt.Println("ANOTHER REQUEST: /", r.URL.Path[1:])
 	results, _ := SearchEngine.Query(r.URL.Path[1:], 5)
 	fmt.Fprintf(w, "{\"products\":[\n")

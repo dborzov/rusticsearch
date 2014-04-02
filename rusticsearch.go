@@ -61,10 +61,13 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println("ANOTHER REQUEST: /", r.URL.Path[1:])
 	results, _ := SearchEngine.Query(r.URL.Path[1:], 5)
-	fmt.Fprintf(w, "{\"products\":[\n")
+	fmt.Fprintf(w, "{\"products\":[")
 	for i, word := range results {
 		fmt.Println("~~~~~~~~~~~~ ", word)
-		fmt.Fprintf(w, "  {\"id\": \"%d\", \"name\": \"%s\"},\n", i, word)
+		fmt.Fprintf(w, "  {\"id\": \"%d\", \"name\": \"%s\"}", i, word)
+		if i != len(results)-1 {
+			fmt.Fprintf(w, ",")
+		}
 	}
 	fmt.Fprintf(w, "]}")
 }

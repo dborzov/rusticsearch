@@ -2,6 +2,7 @@ package main
 
 import (
 	"bytes"
+	"encoding/json"
 	"fmt"
 	"github.com/argusdusty/Ferret"
 	"io/ioutil"
@@ -9,8 +10,16 @@ import (
 )
 
 type SearchItem struct {
-	id   []byte
-	name []byte
+	Id   string `json:"id"`
+	Name string `json:"name"`
+}
+
+func (i SearchItem) String() string {
+	return "id: " + string(i.Id) + ", name:" + string(i.Name)
+}
+
+type SearchResult struct {
+	Results []SearchItem `json:"products"`
 }
 
 var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.LowercaseLetters) }
@@ -41,7 +50,7 @@ func main() {
 		Words = append(Words, string(WordFreq[0]))
 		// to add some priority mechanism in here in the future
 		Values = append(Values, 10)
-		ValueIds[string(WordFreq[0])] = SearchItem{WordFreq[0], WordFreq[1]}
+		ValueIds[string(WordFreq[0])] = SearchItem{string(WordFreq[0]), string(WordFreq[1])}
 	}
 
 	fmt.Println("Created index...")
@@ -61,15 +70,17 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	h.Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Date, Host, Authorization, Key, User-Token")
 	h.Set("Access-Control-Max-Age", "1728000")
 
-	fmt.Println("ANOTHER REQUEST: /", r.URL.Path[1:])
+	fmt.Println("ANOTHER REQUEST: %s", r.URL.Path)
 	results, _ := SearchEngine.Query(r.URL.Path[1:], 5)
-	fmt.Fprintf(w, "{\"products\":[")
-	for i, word := range results {
-		fmt.Println("~~~~~~~~~~~~ ", word)
-		fmt.Fprintf(w, "  {\"id\": \"%d\", \"name\": \"%s\"}", i, word)
-		if i != len(results)-1 {
-			fmt.Fprintf(w, ",")
-		}
+	output := make([]SearchItem, 0)
+	for _, word := range results {
+		fmt.Println("~~~~~~~~~~~~: %v ", string(word))
+		output = append(output, ValueIds[string(word)])
+		fmt.Println("Here is the value added: ", ValueIds[string(word)].String())
 	}
-	fmt.Fprintf(w, "]}")
+	searchResults, err := json.Marshal(SearchResult{output})
+	if err != nil {
+		panic(err)
+	}
+	fmt.Fprintf(w, string(searchResults))
 }

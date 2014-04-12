@@ -17,8 +17,8 @@ var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.
 var LengthSorter = func(s string, v interface{}, l int, i int) float64 { return -float64(l + i) }
 var FreqSorter = func(s string, v interface{}, l int, i int) float64 { return float64(v.(uint64)) }
 var Converter = ferret.UnicodeToLowerASCII
+var ValueIds = map[string]SearchItem{}
 var SearchEngine *ferret.InvertedSuffix
-var ValueIds map[string]SearchItem
 
 func main() {
 	fmt.Println("Hi, I am Rustic Search Server!")
@@ -31,7 +31,6 @@ func main() {
 	fmt.Println("Parsing search_index.csv...")
 	Words := make([]string, 0)
 	Values := make([]interface{}, 0)
-	ValueIds = make(map[string]SearchItem)
 	for i, Vals := range bytes.Split(Data, []byte("\n")) {
 		WordFreq := bytes.Split(Vals, []byte("----------> "))
 		if len(WordFreq) != 2 {

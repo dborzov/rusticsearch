@@ -6,45 +6,48 @@ import (
 	"github.com/argusdusty/Ferret"
 	"io/ioutil"
 	"net/http"
-	"strconv"
-	"time"
 )
+
+type SearchItem struct {
+	id   []byte
+	name []byte
+}
 
 var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.LowercaseLetters) }
 var LengthSorter = func(s string, v interface{}, l int, i int) float64 { return -float64(l + i) }
 var FreqSorter = func(s string, v interface{}, l int, i int) float64 { return float64(v.(uint64)) }
 var Converter = ferret.UnicodeToLowerASCII
 var SearchEngine *ferret.InvertedSuffix
+var ValueIds map[string]SearchItem
 
 func main() {
-	t := time.Now()
+	fmt.Println("Hi, I am Rustic Search Server!")
 	Data, err := ioutil.ReadFile("search_index.csv")
 	if err != nil {
+		fmt.Println("search_index.csv not found :(")
 		panic(err)
 	}
+
+	fmt.Println("Parsing search_index.csv...")
 	Words := make([]string, 0)
 	Values := make([]interface{}, 0)
-	for _, Vals := range bytes.Split(Data, []byte("\n")) {
-		Vals = bytes.TrimSpace(Vals)
-		WordFreq := bytes.Split(Vals, []byte("&&&"))
+	ValueIds = make(map[string]SearchItem)
+	for i, Vals := range bytes.Split(Data, []byte("\n")) {
+		WordFreq := bytes.Split(Vals, []byte("----------> "))
 		if len(WordFreq) != 2 {
-			continue
+			fmt.Printf("Bollocks! search_index.csv line: %v breaks everything: \n \"%v\" \n I quit! \n", i, string(Vals))
+			panic(Vals)
 		}
-		Freq, err := strconv.ParseUint(string(WordFreq[1]), 10, 64)
-		if err != nil {
-			continue
-		}
-		Words = append(Words, string(WordFreq[0]))
-		Values = append(Values, Freq)
-	}
-	fmt.Println("Loaded dictionary in:", time.Now().Sub(t))
-	t = time.Now()
 
+		Words = append(Words, string(WordFreq[0]))
+		// to add some priority mechanism in here in the future
+		Values = append(Values, 10)
+		ValueIds[string(WordFreq[0])] = SearchItem{WordFreq[0], WordFreq[1]}
+	}
+
+	fmt.Println("Created index...")
 	SearchEngine = ferret.New(Words, Words, Values, Converter)
-	fmt.Println("Created index in:", time.Now().Sub(t))
-	t = time.Now()
-	fmt.Println(SearchEngine.Query("ar", 5))
-	fmt.Println("Performed search in:", time.Now().Sub(t))
+
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
 	fmt.Println("   Starting server...")
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")

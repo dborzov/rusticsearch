@@ -11,6 +11,7 @@ import (
 	"strconv"
 )
 
+var port = flag.Int("port", 8080, "a serving TCP port")
 var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.LowercaseLetters) }
 var LengthSorter = func(s string, v interface{}, l int, i int) float64 { return -float64(l + i) }
 var FreqSorter = func(s string, v interface{}, l int, i int) float64 { return float64(v.(uint64)) }
@@ -20,10 +21,10 @@ var SearchEngine *ferret.InvertedSuffix
 
 func main() {
 	fmt.Println("Hi, I am Rustic Search Server!")
-	fmt.Println("Run rusticsearch -h for help with parameters")
-	http.HandleFunc("/", handler)
-	port := flag.Int("port", 8080, "a serving TCP port")
+	fmt.Println("Call rusticsearch -h for help with parameters")
 	flag.Parse()
+
+	http.HandleFunc("/", handler)
 	Data, err := ioutil.ReadFile("search_index.csv")
 	if err != nil {
 		fmt.Println("search_index.csv not found :(")

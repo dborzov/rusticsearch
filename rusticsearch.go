@@ -11,19 +11,6 @@ import (
 	"strconv"
 )
 
-type SearchItem struct {
-	Id   string `json:"id"`
-	Name string `json:"name"`
-}
-
-func (i SearchItem) String() string {
-	return "id: " + string(i.Id) + ", name:" + string(i.Name)
-}
-
-type SearchResult struct {
-	Results []SearchItem `json:"products"`
-}
-
 var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.LowercaseLetters) }
 var LengthSorter = func(s string, v interface{}, l int, i int) float64 { return -float64(l + i) }
 var FreqSorter = func(s string, v interface{}, l int, i int) float64 { return float64(v.(uint64)) }
@@ -33,6 +20,10 @@ var SearchEngine *ferret.InvertedSuffix
 
 func main() {
 	fmt.Println("Hi, I am Rustic Search Server!")
+	fmt.Println("Run rusticsearch -h for help with parameters")
+	http.HandleFunc("/", handler)
+	port := flag.Int("port", 8080, "a serving TCP port")
+	flag.Parse()
 	Data, err := ioutil.ReadFile("search_index.csv")
 	if err != nil {
 		fmt.Println("search_index.csv not found :(")
@@ -58,9 +49,6 @@ func main() {
 	fmt.Println("Created index...")
 	SearchEngine = ferret.New(Words, Words, Values, Converter)
 
-	http.HandleFunc("/", handler)
-	port := flag.Int("port", 8080, "a serving TCP port")
-	flag.Parse()
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
 	fmt.Printf("   Starting server at port %v... \n", ":"+strconv.Itoa(*port))
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
@@ -82,9 +70,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	results, _ := SearchEngine.Query(r.URL.Path[1:], 5)
 	output := make([]SearchItem, 0)
 	for _, word := range results {
-		fmt.Println("~~~~~~~~~~~~: %v ", string(word))
+		fmt.Printf("~~~~~~~~~~~~: %v \n", string(word))
 		output = append(output, ValueIds[string(word)])
-		fmt.Println("Here is the value added: ", ValueIds[string(word)].String())
+		fmt.Println("Here is the value added: ", ValueIds[string(word)])
 	}
 	searchResults, err := json.Marshal(SearchResult{output})
 	if err != nil {

@@ -3,10 +3,12 @@ package main
 import (
 	"bytes"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"github.com/argusdusty/Ferret"
 	"io/ioutil"
 	"net/http"
+	"strconv"
 )
 
 type SearchItem struct {
@@ -56,11 +58,17 @@ func main() {
 	fmt.Println("Created index...")
 	SearchEngine = ferret.New(Words, Words, Values, Converter)
 
-	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
-	fmt.Println("   Starting server...")
-	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
 	http.HandleFunc("/", handler)
-	http.ListenAndServe(":8080", nil)
+	port := flag.Int("port", 8080, "a serving TCP port")
+	flag.Parse()
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
+	fmt.Printf("   Starting server at port %v... \n", ":"+strconv.Itoa(*port))
+	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
+	err = http.ListenAndServe(":"+strconv.Itoa(*port), nil)
+	if err != nil {
+		fmt.Printf("Dang it! Error at ListenAndServe: %v \n", err)
+		panic(err)
+	}
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {

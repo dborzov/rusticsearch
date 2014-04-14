@@ -44,7 +44,7 @@ func main() {
 		Words = append(Words, string(WordFreq[0]))
 		// to add some priority mechanism in here in the future
 		Values = append(Values, 10)
-		ValueIds[string(WordFreq[0])] = SearchItem{string(WordFreq[0]), string(WordFreq[1])}
+		ValueIds[string(WordFreq[0])] = SearchItem{string(WordFreq[1]), string(WordFreq[0])}
 	}
 
 	fmt.Println("Created index...")

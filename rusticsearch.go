@@ -12,6 +12,7 @@ import (
 )
 
 var port = flag.Int("port", 8080, "a serving TCP port")
+var input_file = .String("Input File", "~/search_index.csv", "input data filepath")
 var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.LowercaseLetters) }
 var LengthSorter = func(s string, v interface{}, l int, i int) float64 { return -float64(l + i) }
 var FreqSorter = func(s string, v interface{}, l int, i int) float64 { return float64(v.(uint64)) }
@@ -25,7 +26,7 @@ func main() {
 	flag.Parse()
 
 	http.HandleFunc("/", handler)
-	Data, err := ioutil.ReadFile("search_index.csv")
+	Data, err := ioutil.ReadFile(*input_file)
 	if err != nil {
 		fmt.Println("search_index.csv not found :(")
 		panic(err)

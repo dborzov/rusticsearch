@@ -1,11 +1,10 @@
 rusticsearch
 ============
 
-**rusticsearch** is a lightweight search server that includes all that is needed in a typical small to medium business website but is free of redundant features and all kinds of cruft. 
+**rusticsearch** is a search server with a commitment to ruthless practicality. Use it when you want to add searching for your website or you have less than a million users.
 
-It supports fuzzy search and autocomplete.
+Let us build searching through world's cities:
 
-###Get started
 Download and install the source code with [go get](http://golang.org/cmd/go/) command:
 
     go get github.com/dborzov/rusticsearch

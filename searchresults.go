@@ -13,18 +13,13 @@ type SearchPageItem struct {
 }
 
 type SearchResult struct {
-	Results []SearchItem `json:"products"`
+	Results []interface{} `json:"products"`
 }
 
 type SearchPageResult struct {
 	Results []SearchPageItem `json:"products"`
 }
 
-func (this SearchItem) Convert2SearchPageItem() SearchPageItem {
-	output := SearchPageItem{}
-	output.Id = this.Id
-	output.Name = this.Name
-	output.Price = "10.00"
-	output.Images = []string{"https://www.filepicker.io/api/file/vVk61RqQqaD1cDvHLp1w"}
-	return output
+type SearchEntries struct {
+	Entries []interface{} `json:"products"`
 }

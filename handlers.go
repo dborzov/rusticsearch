@@ -16,7 +16,7 @@ func handler_autocomplete(w http.ResponseWriter, r *http.Request) {
 	search_query = r.URL.Path[14:]
 	fmt.Printf("AUTOCOMPLETE REQUEST: %s \n", search_query)
 	results, _ := SearchEngine.Query(search_query, 5)
-	output := make([]SearchItem, 0)
+	output := make([]interface{}, 0)
 	for _, word := range results {
 		fmt.Printf("~~~~~~~~~~~~: %v \n", string(word))
 		output = append(output, ValueIds[string(word)])
@@ -38,7 +38,7 @@ func handler_welcome(w http.ResponseWriter, r *http.Request) {
 	h.Set("Access-Control-Max-Age", "1728000")
 
 	fmt.Printf("HELLO REQUEST:\n")
-	fmt.Fprintf(w, "Welcome to SowingoSearchServer!")
+	fmt.Fprintf(w, "Welcome to Rustic Search!")
 }
 
 func handler_searchpage(w http.ResponseWriter, r *http.Request) {
@@ -51,13 +51,13 @@ func handler_searchpage(w http.ResponseWriter, r *http.Request) {
 	search_query = r.URL.Path[14:]
 	fmt.Printf("SEARCHPAGE REQUEST: %s \n", search_query)
 	results, _ := SearchEngine.Query(search_query, 100)
-	output := make([]SearchPageItem, 0)
+	output := make([]interface{}, 0)
 	for _, word := range results {
 		fmt.Printf("~~~~~~~~~~~~: %v \n", string(word))
-		output = append(output, ValueIds[string(word)].Convert2SearchPageItem())
+		output = append(output, ValueIds[string(word)])
 		fmt.Println("Here is the value added: ", ValueIds[string(word)])
 	}
-	searchResults, err := json.Marshal(SearchPageResult{output})
+	searchResults, err := json.Marshal(SearchResult{output})
 	if err != nil {
 		panic(err)
 	}

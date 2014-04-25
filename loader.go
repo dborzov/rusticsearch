@@ -1,11 +1,17 @@
 package main
 
 import (
-	"bytes"
+	"encoding/json"
 	"fmt"
 	"github.com/argusdusty/Ferret"
 	"io/ioutil"
 )
+
+const WORD_KEY = "name"
+
+var entryMap map[string]interface{}
+var jsonDict interface{}
+var jsonString []byte
 
 func loadSearchItems() {
 	Data, err := ioutil.ReadFile(*input_file)
@@ -15,21 +21,20 @@ func loadSearchItems() {
 	}
 
 	fmt.Println("Parsing search_index.csv...")
+	json.Unmarshal(Data, &jsonDict)
+	entries := jsonDict.([]interface{})
+
+	// populating entries cycle
 	Words := make([]string, 0)
 	Values := make([]interface{}, 0)
-	for i, Vals := range bytes.Split(Data, []byte("\n")) {
-		WordFreq := bytes.Split(Vals, []byte("----------> "))
-		if len(WordFreq) != 2 {
-			fmt.Printf("Bollocks! search_index.csv line: %v breaks everything: \n \"%v\" \n I quit! \n", i, string(Vals))
-			panic(Vals)
-		}
-
-		Words = append(Words, string(WordFreq[0]))
-		// to add some priority mechanism in here in the future
+	for _, entry := range entries {
+		entryMap = entry.(map[string]interface{})
+		Words = append(Words, entryMap[WORD_KEY].(string))
 		Values = append(Values, 10)
-		ValueIds[string(WordFreq[0])] = SearchItem{string(WordFreq[1]), string(WordFreq[0])}
+
+		jsonString, _ = json.Marshal(entry)
+		ValueIds[entryMap[WORD_KEY].(string)] = entry
 	}
 
 	SearchEngine = ferret.New(Words, Words, Values, Converter)
-
 }

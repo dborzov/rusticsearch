@@ -11,7 +11,7 @@ var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.
 var LengthSorter = func(s string, v interface{}, l int, i int) float64 { return -float64(l + i) }
 var FreqSorter = func(s string, v interface{}, l int, i int) float64 { return float64(v.(uint64)) }
 var Converter = ferret.UnicodeToLowerASCII
-var ValueIds = map[string]SearchItem{}
+var ValueIds = make(map[string]interface{})
 var SearchEngine *ferret.InvertedSuffix
 var search_query string
 

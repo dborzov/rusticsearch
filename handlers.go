@@ -48,7 +48,7 @@ func handler_searchpage(w http.ResponseWriter, r *http.Request) {
 	h.Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Date, Host, Authorization, Key, User-Token")
 	h.Set("Access-Control-Max-Age", "1728000")
 
-	search_query = r.URL.Path[14:]
+	search_query = r.URL.Path[12:]
 	fmt.Printf("SEARCHPAGE REQUEST: %s \n", search_query)
 	results, _ := SearchEngine.Query(search_query, 100)
 	output := make([]interface{}, 0)

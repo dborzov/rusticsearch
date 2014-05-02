@@ -21,15 +21,16 @@ func main() {
 	config()
 	loadSearchItems()
 
-	http.HandleFunc("/autocomplete/", papaHandler(handler_autocomplete))
-	http.HandleFunc("/searchpage/", papaHandler(handler_searchpage))
-	http.HandleFunc("/", papaHandler(handler_welcome))
+	mux := http.NewServeMux()
+	mux.HandleFunc("/autocomplete/", papaHandler(handler_autocomplete))
+	mux.HandleFunc("/searchpage/", papaHandler(handler_searchpage))
+	mux.HandleFunc("/", papaHandler(handler_welcome))
 
 	fmt.Println("Created index...")
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
 	fmt.Printf("   Starting server at port %v... \n", ":"+strconv.Itoa(*port))
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
-	err := http.ListenAndServe(":"+strconv.Itoa(*port), nil)
+	err := http.ListenAndServe(":"+strconv.Itoa(*port), mux)
 	if err != nil {
 		fmt.Printf("Dang it! Error at ListenAndServe: %v \n", err)
 		panic(err)

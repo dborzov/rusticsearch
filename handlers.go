@@ -9,7 +9,6 @@ import (
 )
 
 type Handler func(w http.ResponseWriter, r *http.Request)
-type Filler func(r *http.Request) []byte
 
 func papaHandler(a Filler) Handler {
 	rh := func(w http.ResponseWriter, r *http.Request) {

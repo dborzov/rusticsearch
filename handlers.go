@@ -6,13 +6,21 @@ import (
 	"net/http"
 )
 
-func handler_autocomplete(w http.ResponseWriter, r *http.Request) {
-	h := w.Header()
-	h.Set("Access-Control-Allow-Origin", "*")
-	h.Set("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE, OPTIONS")
-	h.Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Date, Host, Authorization, Key, User-Token")
-	h.Set("Access-Control-Max-Age", "1728000")
+type Handler func(w http.ResponseWriter, r *http.Request)
 
+func papaHandler(a Handler) Handler {
+	rh := func(w http.ResponseWriter, r *http.Request) {
+		h := w.Header()
+		h.Set("Access-Control-Allow-Origin", "*")
+		h.Set("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE, OPTIONS")
+		h.Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Date, Host, Authorization, Key, User-Token")
+		h.Set("Access-Control-Max-Age", "1728000")
+		a(w, r)
+	}
+	return rh
+}
+
+func handler_autocomplete(w http.ResponseWriter, r *http.Request) {
 	search_query = r.URL.Path[14:]
 	fmt.Printf("AUTOCOMPLETE REQUEST: %s \n", search_query)
 	results, _ := SearchEngine.Query(search_query, 5)
@@ -24,7 +32,7 @@ func handler_autocomplete(w http.ResponseWriter, r *http.Request) {
 	}
 	searchResults, err := json.Marshal(SearchResult{output})
 	if err != nil {
-		panic(err)
+		fmt.Printf("Error with jsonifying %s \n ", err)
 	}
 
 	fmt.Fprintf(w, string(searchResults))

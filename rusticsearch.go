@@ -11,6 +11,7 @@ var Correction = func(b []byte) [][]byte { return ferret.ErrorCorrect(b, ferret.
 var LengthSorter = func(s string, v interface{}, l int, i int) float64 { return -float64(l + i) }
 var FreqSorter = func(s string, v interface{}, l int, i int) float64 { return float64(v.(uint64)) }
 var Converter = ferret.UnicodeToLowerASCII
+
 var ValueIds = make(map[string]interface{})
 var SearchEngine *ferret.InvertedSuffix
 var search_query string
@@ -20,9 +21,9 @@ func main() {
 	config()
 	loadSearchItems()
 
-	http.HandleFunc("/autocomplete/", handler_autocomplete)
-	http.HandleFunc("/searchpage/", handler_searchpage)
-	http.HandleFunc("/", handler_welcome)
+	http.HandleFunc("/autocomplete/", papaHandler(handler_autocomplete))
+	http.HandleFunc("/searchpage/", papaHandler(handler_searchpage))
+	http.HandleFunc("/", papaHandler(handler_welcome))
 
 	fmt.Println("Created index...")
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")

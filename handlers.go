@@ -39,23 +39,11 @@ func handler_autocomplete(w http.ResponseWriter, r *http.Request) {
 }
 
 func handler_welcome(w http.ResponseWriter, r *http.Request) {
-	h := w.Header()
-	h.Set("Access-Control-Allow-Origin", "*")
-	h.Set("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE, OPTIONS")
-	h.Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Date, Host, Authorization, Key, User-Token")
-	h.Set("Access-Control-Max-Age", "1728000")
-
 	fmt.Printf("HELLO REQUEST:\n")
 	fmt.Fprintf(w, "Welcome to Rustic Search!")
 }
 
 func handler_searchpage(w http.ResponseWriter, r *http.Request) {
-	h := w.Header()
-	h.Set("Access-Control-Allow-Origin", "*")
-	h.Set("Access-Control-Allow-Methods", "POST, GET, PUT, PATCH, DELETE, OPTIONS")
-	h.Set("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, API-Date, Host, Authorization, Key, User-Token")
-	h.Set("Access-Control-Max-Age", "1728000")
-
 	search_query = r.URL.Path[12:]
 	fmt.Printf("SEARCHPAGE REQUEST: %s \n", search_query)
 	results, _ := SearchEngine.Query(search_query, 100)

@@ -3,6 +3,8 @@
 *.a
 *.so
 search_index.csv
+search_index.json
+history.log
 
 # Folders
 _obj

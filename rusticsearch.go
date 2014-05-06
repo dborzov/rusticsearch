@@ -22,7 +22,6 @@ func main() {
 	loadSearchItems()
 
 	mux := http.NewServeMux()
-	mux.HandleFunc("/autocomplete/", papaHandler(handler_autocomplete))
 	mux.HandleFunc("/searchpage/", papaHandler(handler_searchpage))
 	mux.HandleFunc("/", papaHandler(handler_welcome))
 

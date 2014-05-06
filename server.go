@@ -16,7 +16,7 @@ var Header = http.Header{
 	"Access-Control-Max-Age":       []string{"1728000"},
 }
 
-type Filler func(r *http.Request) []byte
+type Filler func(r *http.Request) ([]byte, error)
 
 type Endpoint struct {
 	path    string
@@ -24,7 +24,7 @@ type Endpoint struct {
 }
 
 func (this Endpoint) ServeHTTP(w http.ResponseWriter, r *http.Request) {
-	h := w.Header()
+	// h := w.Header()
 }
 
 func SetItUp() {

@@ -62,3 +62,14 @@ func handler_searchpage(r *http.Request) ([]byte, error) {
 	}
 	return searchResults, nil
 }
+
+func handler_autocomplete(r *http.Request) ([]byte, error) {
+	search_query = r.URL.Path[14:]
+	fmt.Printf("AUTOCOMPLETE REQUEST: %s \n", search_query)
+	output := SearchQuery(search_query, 10)
+	searchResults, err := json.Marshal(SearchResult{output})
+	if err != nil {
+		return []byte{}, errors.New("json.Marshaling the response failed :-(")
+	}
+	return searchResults, nil
+}

@@ -23,6 +23,7 @@ func main() {
 
 	mux := http.NewServeMux()
 	mux.HandleFunc("/searchpage/", papaHandler(handler_searchpage))
+	mux.HandleFunc("/autocomplete/", papaHandler(handler_autocomplete))
 	mux.HandleFunc("/", papaHandler(handler_welcome))
 
 	fmt.Println("Created index...")

@@ -23,3 +23,12 @@ type SearchPageResult struct {
 type SearchEntries struct {
 	Entries []interface{} `json:"products"`
 }
+
+func SearchQuery(query string, count int) []interface{} {
+	results, _ := SearchEngine.Query(query, count)
+	output := make([]interface{}, len(results))
+	for i, word := range results {
+		output[i] = ValueIds[string(word)]
+	}
+	return output
+}

@@ -55,11 +55,7 @@ func handler_welcome(r *http.Request) ([]byte, error) {
 func handler_searchpage(r *http.Request) ([]byte, error) {
 	search_query = r.URL.Path[12:]
 	fmt.Printf("SEARCHPAGE REQUEST: %s \n", search_query)
-	results, _ := SearchEngine.Query(search_query, 100)
-	output := make([]interface{}, 0)
-	for _, word := range results {
-		output = append(output, ValueIds[string(word)])
-	}
+	output := SearchQuery(search_query, 100)
 	searchResults, err := json.Marshal(SearchResult{output})
 	if err != nil {
 		return []byte{}, errors.New("json.Marshaling the response failed :-(")

@@ -16,11 +16,11 @@ var jsonString []byte
 func loadSearchItems() {
 	Data, err := ioutil.ReadFile(*input_file)
 	if err != nil {
-		fmt.Println("search_index.csv not found :(")
+		fmt.Println("search_index.json not found :(")
 		panic(err)
 	}
 
-	fmt.Println("Parsing search_index.csv...")
+	fmt.Println("Parsing search_index.json...")
 	json.Unmarshal(Data, &jsonDict)
 	entries := jsonDict.([]interface{})
 
@@ -29,11 +29,12 @@ func loadSearchItems() {
 	Values := make([]interface{}, 0)
 	for _, entry := range entries {
 		entryMap = entry.(map[string]interface{})
-		Words = append(Words, entryMap[WORD_KEY].(string))
+		keyWord := entryMap["vendor"].(string) + entryMap[WORD_KEY].(string)
+		Words = append(Words, keyWord)
 		Values = append(Values, 10)
 
 		jsonString, _ = json.Marshal(entry)
-		ValueIds[entryMap[WORD_KEY].(string)] = entry
+		ValueIds[keyWord] = entry
 	}
 
 	SearchEngine = ferret.New(Words, Words, Values, Converter)

@@ -25,10 +25,15 @@ type SearchEntries struct {
 }
 
 func SearchQuery(query string, count int) []interface{} {
+	// ideally, the result would exactly match
 	results, _ := SearchEngine.Query(query, count)
 	output := make([]interface{}, len(results))
 	for i, word := range results {
 		output[i] = ValueIds[string(word)]
 	}
+	if len(results) != 0 {
+		return output
+	}
+
 	return output
 }

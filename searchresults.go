@@ -2,7 +2,6 @@ package main
 
 import (
 	"bytes"
-	"fmt"
 )
 
 type SearchItem struct {
@@ -42,11 +41,28 @@ func SearchQuery(query string, count int) []interface{} {
 
 	// exact match did not work, try word by word
 	words := bytes.Split([]byte(query), []byte(" "))
-	fmt.Printf("The words: ", words, " \n")
+
+	mentions := make(map[string]int)
+	inner_bound := make([]string, 0)
+	// outer_bound := make([]string, 0)
 	for _, word := range words {
 		results, _ := SearchEngine.Query(string(word), count)
 		for _, item := range results {
-			output = append(output, ValueIds[string(item)])
+			mentions[string(item)] = mentions[string(item)] + 1
+			inner_bound = append(inner_bound, string(item))
+		}
+	}
+
+	// first comes inner sum
+	for key, value := range mentions {
+		if len(output) < count && value > 1 {
+			output = append(output, ValueIds[key])
+		}
+	}
+
+	for _, term := range inner_bound {
+		if len(output) < count {
+			output = append(output, ValueIds[term])
 		}
 	}
 

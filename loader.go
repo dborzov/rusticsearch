@@ -20,7 +20,6 @@ func loadSearchItems() {
 		panic(err)
 	}
 
-	fmt.Println("Parsing search_index.json...")
 	json.Unmarshal(Data, &jsonDict)
 	entries := jsonDict.([]interface{})
 

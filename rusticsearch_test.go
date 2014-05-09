@@ -15,10 +15,15 @@ func TestQuerying(t *testing.T) {
 }
 
 
-func BenchmarkQuerying(b *testing.B) {
+func benchmarkQuerying(query string, b *testing.B) {
     config()
     loadSearchItems()
     for n := 0; n < b.N; n++ {
-       SearchQuery("gloves", 17)
+       SearchQuery(query, 17)
     }
 }
+
+
+func BenchmarkQueryG(b *testing.B) { benchmarkQuerying("G", b) }
+func BenchmarkQueryGloves(b *testing.B) { benchmarkQuerying("Gloves", b) }
+func BenchmarkQueryGlovesG(b *testing.B) { benchmarkQuerying("Gloves Germiph", b) }

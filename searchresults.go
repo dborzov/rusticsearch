@@ -44,7 +44,7 @@ func SearchQuery(query string, count int) []interface{} {
 
 	mentions := make(map[string]int)
 	inner_bound := make([]string, 0)
-	// outer_bound := make([]string, 0)
+	// outer_bound := ma([]string, 0)
 	for _, word := range words {
 		results, _ := SearchEngine.Query(string(word), 100)
 		for _, item := range results {

@@ -14,6 +14,11 @@ var entryMap map[string]interface{}
 var jsonDict interface{}
 var jsonString []byte
 
+func Updater() {
+	// Here be syncing DB with the index
+
+}
+
 func loadSearchItems() {
 	db, err := sql.Open("mysql", *MySQLAddress)
 	if err != nil {
@@ -37,6 +42,8 @@ func loadSearchItems() {
 							    vendor
 							WHERE
 							    product.category_id=category.id 
+							  AND 
+							    product.content_status="published"
 						      AND
 							    vendor_inventory.product_id=product.id
 						      AND

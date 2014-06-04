@@ -73,3 +73,9 @@ func handler_autocomplete(r *http.Request) ([]byte, error) {
 	}
 	return searchResults, nil
 }
+
+func handler_reset(r *http.Request) ([]byte, error) {
+	fmt.Printf("RELOADING THE INDEX\n")
+	loadSearchItems()
+	return []byte("The Index Is reloaded!"), nil
+}

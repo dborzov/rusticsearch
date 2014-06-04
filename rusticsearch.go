@@ -25,6 +25,7 @@ func main() {
 	mux.HandleFunc("/searchpage/", papaHandler(handler_searchpage))
 	mux.HandleFunc("/autocomplete/", papaHandler(handler_autocomplete))
 	mux.HandleFunc("/", papaHandler(handler_welcome))
+	mux.HandleFunc("/reset", papaHandler(handler_reset))
 
 	fmt.Println("Created index...")
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")

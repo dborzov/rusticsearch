@@ -1,10 +1,11 @@
 package main
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"github.com/argusdusty/Ferret"
-	"io/ioutil"
+	_ "github.com/go-sql-driver/mysql"
 )
 
 const WORD_KEY = "name"
@@ -14,23 +15,59 @@ var jsonDict interface{}
 var jsonString []byte
 
 func loadSearchItems() {
-	Data, err := ioutil.ReadFile(*input_file)
+	db, err := sql.Open("mysql", *MySQLAddress)
 	if err != nil {
-		fmt.Println("search_index.json not found :(")
-		panic(err)
+		fmt.Println("Unable to connect to that DB address :(")
+		fmt.Println("-----------------------------------")
+		panic(err.Error())
 	}
+	defer db.Close()
 
-	json.Unmarshal(Data, &jsonDict)
-	entries := jsonDict.([]interface{})
+	rows, err := db.Query(`SELECT 
+								product.id, 
+								product.name,
+								product.category_id,
+								category.name,
+								vendor.name,
+								vendor_inventory.regular_price
+							FROM 
+							    product,
+							    category,
+							    vendor_inventory, 
+							    vendor
+							WHERE
+							    product.category_id=category.id 
+						      AND
+							    vendor_inventory.product_id=product.id
+						      AND
+						        vendor_inventory.vendor_id=vendor.id
+							    ;`)
+
+	if err != nil {
+		fmt.Println("Unable to connect to that DB address")
+		fmt.Println("-----------------------------------")
+		panic(err.Error())
+	}
 
 	// populating entries cycle
 	Words := make([]string, 0)
 	Values := make([]interface{}, 0)
-	for _, entry := range entries {
-		entryMap = entry.(map[string]interface{})
-		keyWord := entryMap["vendor"].(string) + entryMap[WORD_KEY].(string)
+	for rows.Next() {
+		var id, name, category_id, category_name, vendor, price string
+		if err := rows.Scan(&id, &name, &category_id, &category_name, &vendor, &price); err != nil {
+			panic(err.Error())
+		}
+
+		entry := map[string]string{
+			"id":          id,
+			"name":        name,
+			"category_id": category_id,
+			"category":    category_name,
+		}
+
+		keyWord := vendor + name
 		Words = append(Words, keyWord)
-		Values = append(Values, 10)
+		Values = append(Values, 10) // to add some fancy prioritizing here
 
 		jsonString, _ = json.Marshal(entry)
 		ValueIds[keyWord] = entry

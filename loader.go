@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/argusdusty/Ferret"
 	_ "github.com/go-sql-driver/mysql"
+	"strings"
 )
 
 const WORD_KEY = "name"
@@ -32,22 +33,36 @@ func loadSearchItems() {
 								product.id, 
 								product.name,
 								product.category_id,
-								category.name,
+								primary_category.name,
+								product.subcategory_id,
+								subcategory.name,
 								vendor.name,
-								vendor_inventory.regular_price
+								vendor_inventory.regular_price,
+								GROUP_CONCAT(image.url_src)
 							FROM 
 							    product,
-							    category,
+							    products_to_images,
+							    image,
+							    category AS primary_category,
+							    category AS subcategory,
 							    vendor_inventory, 
 							    vendor
 							WHERE
-							    product.category_id=category.id 
+							    products_to_images.product_id = product.id
+							  AND
+							    products_to_images.image_id = image.id
+							  AND
+							    product.category_id=primary_category.id 
+							  AND
+							    product.subcategory_id=subcategory.id
 							  AND 
 							    product.content_status="published"
 						      AND
 							    vendor_inventory.product_id=product.id
 						      AND
 						        vendor_inventory.vendor_id=vendor.id
+						    GROUP BY
+						        product.name
 							    ;`)
 
 	if err != nil {
@@ -60,16 +75,23 @@ func loadSearchItems() {
 	Words := make([]string, 0)
 	Values := make([]interface{}, 0)
 	for rows.Next() {
-		var id, name, category_id, category_name, vendor, price string
-		if err := rows.Scan(&id, &name, &category_id, &category_name, &vendor, &price); err != nil {
+		var id, name, category_id, category_name, subcategory_id, subcategory_name, vendor, price, images string
+		if err := rows.Scan(&id, &name, &category_id, &category_name, &subcategory_id, &subcategory_name, &vendor, &price, &images); err != nil {
 			panic(err.Error())
 		}
 
-		entry := map[string]string{
-			"id":          id,
-			"name":        name,
-			"category_id": category_id,
-			"category":    category_name,
+		list_images := strings.Split(images, ",")
+
+		entry := map[string]interface{}{
+			"id":             id,
+			"name":           name,
+			"category_id":    category_id,
+			"category":       category_name,
+			"subcategory_id": subcategory_id,
+			"subcategory":    subcategory_name,
+			"price":          price,
+			"vendor":         vendor,
+			"images":         list_images,
 		}
 
 		keyWord := vendor + name

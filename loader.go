@@ -7,6 +7,7 @@ import (
 	"github.com/argusdusty/Ferret"
 	_ "github.com/go-sql-driver/mysql"
 	"strings"
+	"time"
 )
 
 const WORD_KEY = "name"
@@ -16,8 +17,12 @@ var jsonDict interface{}
 var jsonString []byte
 
 func Updater() {
-	// Here be syncing DB with the index
-
+	// Here be periodic syncing with the index
+	for {
+		time.Sleep(time.Duration(*refresh_time) * time.Minute)
+		fmt.Printf("TIME TO REFRESH THE SEARCH INDEX\n")
+		loadSearchItems()
+	}
 }
 
 func loadSearchItems() {

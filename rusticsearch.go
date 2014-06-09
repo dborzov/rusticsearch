@@ -31,6 +31,10 @@ func main() {
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
 	fmt.Printf("   Starting server at port %v... \n", ":"+strconv.Itoa(*port))
 	fmt.Println("~~~~~~~~~~~~~~~~~~~~~~~")
+
+	fmt.Println("Starting the updater...")
+	go Updater()
+
 	err := http.ListenAndServe(":"+strconv.Itoa(*port), mux)
 	if err != nil {
 		fmt.Printf("Dang it! Error at ListenAndServe: %v \n", err)

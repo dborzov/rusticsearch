@@ -66,6 +66,8 @@ func loadSearchItems() {
 							    vendor_inventory.product_id=product.id
 						      AND
 						        vendor_inventory.vendor_id=vendor.id
+						      AND
+						        vendor_inventory.is_published=1
 						    GROUP BY
 						        product.name
 							    ;`)

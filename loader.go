@@ -4,29 +4,30 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
-	"github.com/argusdusty/Ferret"
-	_ "github.com/go-sql-driver/mysql"
 	"strings"
 	"time"
-)
 
-const WORD_KEY = "name"
+	ferret "github.com/argusdusty/Ferret"
+	_ "github.com/go-sql-driver/mysql"
+)
 
 var entryMap map[string]interface{}
 var jsonDict interface{}
 var jsonString []byte
 
+// Updater requeries and rebuilds search index periodically (every *refreshTime)
+//thus syncing all the changes
 func Updater() {
 	// Here be periodic syncing with the index
 	for {
-		time.Sleep(time.Duration(*refresh_time) * time.Minute)
+		time.Sleep(time.Duration(*refreshTime) * time.Minute)
 		fmt.Printf("TIME TO REFRESH THE SEARCH INDEX\n")
 		loadSearchItems()
 	}
 }
 
 func loadSearchItems() {
-	db, err := sql.Open("mysql", *MySQLAddress)
+	db, err := sql.Open("mysql", *mySQLAddress)
 	if err != nil {
 		fmt.Println("Unable to connect to that DB address :(")
 		fmt.Println("-----------------------------------")
@@ -34,8 +35,8 @@ func loadSearchItems() {
 	}
 	defer db.Close()
 
-	rows, err := db.Query(`SELECT 
-								product.id, 
+	rows, err := db.Query(`SELECT
+								product.id,
 								product.name,
 								product.category_id,
 								primary_category.name,
@@ -44,23 +45,23 @@ func loadSearchItems() {
 								vendor.name,
 								vendor_inventory.regular_price,
 								GROUP_CONCAT(image.url_src)
-							FROM 
+							FROM
 							    product,
 							    products_to_images,
 							    image,
 							    category AS primary_category,
 							    category AS subcategory,
-							    vendor_inventory, 
+							    vendor_inventory,
 							    vendor
 							WHERE
 							    products_to_images.product_id = product.id
 							  AND
 							    products_to_images.image_id = image.id
 							  AND
-							    product.category_id=primary_category.id 
+							    product.category_id=primary_category.id
 							  AND
 							    product.subcategory_id=subcategory.id
-							  AND 
+							  AND
 							    product.content_status="published"
 						      AND
 							    vendor_inventory.product_id=product.id

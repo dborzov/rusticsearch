@@ -12,11 +12,22 @@ var mySQLAddress = flag.String("DBaddr", "root@tcp(localhost:3306)/peter", "Data
 var configFilePath = flag.String("configFile", defaultConfigFilePath, "configuration json filepath")
 
 const defaultConfigFilePath = "rusticsearch.config"
-const configFileTemplate = `{
-			\"port\":8080,
-			\"refreshTime\":10,
-}`
 
+// Config instance tracks configuration for db and server connections
+type Config struct {
+	Port               int    `json:"port"`
+	RefreshTime        int    `json:"refresh_time"`
+	DatabaseType       string `json:"database_type"`
+	DatabaseConnection string `json:"database_connection"`
+	DevMode            bool
+}
+
+const configFileTemplate = `{
+			"port":8080,
+			"refresh_time":10,
+			"database_type":"sqlite",
+			"database_connection":"example.db"
+}`
 
 func config() {
 	flag.Parse()

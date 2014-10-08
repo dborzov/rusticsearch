@@ -35,43 +35,7 @@ func loadSearchItems() {
 	}
 	defer db.Close()
 
-	rows, err := db.Query(`SELECT
-								product.id,
-								product.name,
-								product.category_id,
-								primary_category.name,
-								product.subcategory_id,
-								subcategory.name,
-								vendor.name,
-								vendor_inventory.regular_price,
-								GROUP_CONCAT(image.url_src)
-							FROM
-							    product,
-							    products_to_images,
-							    image,
-							    category AS primary_category,
-							    category AS subcategory,
-							    vendor_inventory,
-							    vendor
-							WHERE
-							    products_to_images.product_id = product.id
-							  AND
-							    products_to_images.image_id = image.id
-							  AND
-							    product.category_id=primary_category.id
-							  AND
-							    product.subcategory_id=subcategory.id
-							  AND
-							    product.content_status="published"
-						      AND
-							    vendor_inventory.product_id=product.id
-						      AND
-						        vendor_inventory.vendor_id=vendor.id
-						      AND
-						        vendor_inventory.is_published=1
-						    GROUP BY
-						        product.name
-							    ;`)
+	rows, err := db.Query(config.SQLQuery)
 
 	if err != nil {
 		fmt.Println("Unable to connect to that DB address")

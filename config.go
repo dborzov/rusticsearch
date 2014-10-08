@@ -19,6 +19,7 @@ type Config struct {
 	RefreshTime        int    `json:"refresh_time"`
 	DatabaseType       string `json:"database_type"`
 	DatabaseConnection string `json:"database_connection"`
+	SQLQuery           string `json:"sql_query"`
 	DevMode            bool
 }
 
@@ -26,7 +27,8 @@ const configFileTemplate = `{
 			"port":8080,
 			"refresh_time":10,
 			"database_type":"sqlite",
-			"database_connection":"example.db"
+			"database_connection":"example.db",
+			"sql_query": "select title from episode;"
 }`
 
 func config() {

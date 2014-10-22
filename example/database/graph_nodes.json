@@ -1,0 +1,962 @@
+{
+    "Woobeewoo Villagers": [
+        "Bad Timing"
+    ],
+    "Goblins": [
+        "Her Parents",
+        "The Great Bird Man",
+        "The Silent King"
+    ],
+    "Fruit Witch": [
+        "Dad's Dungeon",
+        "Slumber Party Panic"
+    ],
+    "Shelby": [
+        "Holly Jolly Secrets Part II",
+        "My Two Favorite People",
+        "Mystery Dungeon",
+        "The Pit",
+        "What Was Missing"
+    ],
+    "Evil Monster": [
+        "Dad's Dungeon"
+    ],
+    "Nymph": [
+        "Power Animal"
+    ],
+    "Shoko": [
+        "King Worm",
+        "Sky Witch",
+        "The Creeps",
+        "The Vault"
+    ],
+    "Demons": [
+        "Daddy's Little Monster",
+        "Return to the Nightosphere"
+    ],
+    "Farmworld Finn": [
+        "Holly Jolly Secrets Part II",
+        "King Worm",
+        "Mortal Folly",
+        "Puhoy"
+    ],
+    "Simon": [
+        "Holly Jolly Secrets Part II",
+        "Power Animal"
+    ],
+    "Grand Master Wizard": [
+        "Wizard Battle"
+    ],
+    "Boobafina": [
+        "Storytelling"
+    ],
+    "Mirror Finns": [
+        "A Glitch is a Glitch"
+    ],
+    "Ronnie": [
+        "BMO Noire"
+    ],
+    "Cosmic Owl": [
+        "Prisoners of Love",
+        "The New Frontier"
+    ],
+    "Pete Sassafras": [
+        "Candy Streets"
+    ],
+    "Jigglers": [
+        "The Jiggler"
+    ],
+    "Candy People": [
+        "A Glitch is a Glitch",
+        "Davey",
+        "Fionna and Cake",
+        "From Bad to Worse",
+        "Hug Wolf",
+        "In Your Footsteps",
+        "Mystery Train",
+        "No One Can Hear You",
+        "Slumber Party Panic",
+        "The Vault",
+        "Too Young",
+        "You Made Me"
+    ],
+    "Electroids": [
+        "Memories of Boom Boom Mountain"
+    ],
+    "Forest Cyclops": [
+        "Another Way",
+        "Who Would Win"
+    ],
+    "Margaret": [
+        "Conquest of Cuteness",
+        "Hug Wolf",
+        "Jake the Dad",
+        "Rainy Day Daydream"
+    ],
+    "Teenage Bear": [
+        "Storytelling"
+    ],
+    "Lemon Camel": [
+        "All the Little People",
+        "Too Young"
+    ],
+    "Fuzzy Friends": [
+        "Business Time",
+        "It Came from the Nightosphere",
+        "The Silent King"
+    ],
+    "Moe": [
+        "Be More",
+        "Time Sandwich"
+    ],
+    "Magic Man": [
+        "All the Little People",
+        "Apple Wedding",
+        "Play Date",
+        "Sons of Mars",
+        "Time Sandwich"
+    ],
+    "Pterodactyl": [
+        "Play Date"
+    ],
+    "Furnius": [
+        "Ignition Point"
+    ],
+    "Hot Dog Knights": [
+        "The Limit"
+    ],
+    "Fire Newt": [
+        "Ocean of Fear"
+    ],
+    "Crunchy": [
+        "You Made Me"
+    ],
+    "Tiny Manticore": [
+        "Sons of Mars"
+    ],
+    "Shark": [
+        "My Two Favorite People"
+    ],
+    "Marquis of Nuts": [
+        "The Duke"
+    ],
+    "Billy": [
+        "Billy's Bucket List",
+        "Mortal Folly"
+    ],
+    "Grob Gob Glob Grod": [
+        "Bad Little Boy",
+        "I Remember You",
+        "Sons of Mars",
+        "Too Young"
+    ],
+    "Door Lord": [
+        "What Was Missing"
+    ],
+    "Tiffany": [
+        "My Two Favorite People",
+        "One Last Job",
+        "Who Would Win"
+    ],
+    "The Morrow": [
+        "Burning Low"
+    ],
+    "Margles": [
+        "Sons of Mars"
+    ],
+    "Joshua": [
+        "Crystals Have Power",
+        "Dad's Dungeon",
+        "King Worm"
+    ],
+    "Choose Goose": [
+        "All the Little People",
+        "Blade of Grass",
+        "The Real You"
+    ],
+    "Fire Wolf Pup": [
+        "Thank You"
+    ],
+    "Candy Person 2": [
+        "A Glitch is a Glitch",
+        "Slumber Party Panic",
+        "You Made Me"
+    ],
+    "Candy Person 3": [
+        "All the Little People",
+        "Lemonhope Part 1",
+        "Time Sandwich"
+    ],
+    "Snow Golem": [
+        "Animated short",
+        "Prisoners of Love",
+        "Thank You"
+    ],
+    "Talking Bush": [
+        "Another Way",
+        "The Hard Easy"
+    ],
+    "Dragons": [
+        "Davey",
+        "His Hero",
+        "Memories of Boom Boom Mountain",
+        "The Silent King"
+    ],
+    "Snorlock": [
+        "Slow Love"
+    ],
+    "Cobbler": [
+        "His Hero"
+    ],
+    "Lumpy Space King": [
+        "The Duke",
+        "The Monster"
+    ],
+    "Tiny Goblin": [
+        "Memory of a Memory"
+    ],
+    "Tree of Blight": [
+        "Hot to the Touch",
+        "Hug Wolf"
+    ],
+    "Scorcher": [
+        "Hitman",
+        "You Made Me"
+    ],
+    "Electric Eel": [
+        "Another Way"
+    ],
+    "CMO": [
+        "Be More",
+        "Puhoy"
+    ],
+    "Rainy": [
+        "Another Way"
+    ],
+    "Ghost Man": [
+        "Blood Under the Skin"
+    ],
+    "Lady Rainicorn": [
+        "All the Little People",
+        "Animated short",
+        "Apple Thief",
+        "BMO Noire",
+        "Burning Low",
+        "Card Wars",
+        "From Bad to Worse",
+        "Go With Me",
+        "Her Parents",
+        "Jake the Dad",
+        "James",
+        "King Worm",
+        "Mortal Folly",
+        "My Two Favorite People",
+        "No One Can Hear You",
+        "One Last Job",
+        "Rainy Day Daydream",
+        "Slumber Party Panic",
+        "The Creeps",
+        "The Great Bird Man",
+        "The Pit",
+        "Time Sandwich",
+        "Up a Tree",
+        "Who Would Win"
+    ],
+    "Captain Banana Guard": [
+        "One Last Job",
+        "Princess Cookie"
+    ],
+    "Frog": [
+        "The Monster"
+    ],
+    "Nurse Pound Cake": [
+        "Mortal Recoil"
+    ],
+    "Clown Nurse": [
+        "Another Way",
+        "Jake Suit"
+    ],
+    "Banana Man": [
+        "Five More Short Graybles",
+        "Sons of Mars",
+        "The New Frontier",
+        "We Fixed a Truck"
+    ],
+    "Mannish Man": [
+        "Time Sandwich"
+    ],
+    "Ice Penguin Monster": [
+        "King Worm",
+        "Reign of Gunters"
+    ],
+    "Prince Huge": [
+        "The Hard Easy"
+    ],
+    "Balloons": [
+        "Ricardio the Heart Guy"
+    ],
+    "Neptr": [
+        "BMO Noire",
+        "Hot to the Touch",
+        "Mystery Dungeon"
+    ],
+    "Hunson Abadeer": [
+        "All the Little People",
+        "Daddy's Little Monster",
+        "I Remember You",
+        "It Came from the Nightosphere",
+        "Memory of a Memory",
+        "Return to the Nightosphere"
+    ],
+    "Mushroom People": [
+        "The Pods"
+    ],
+    "Fine Lady": [
+        "His Hero"
+    ],
+    "BMO": [
+        "All the Little People",
+        "Apple Wedding",
+        "Bad Little Boy",
+        "Be More",
+        "Business Time",
+        "Candy Streets",
+        "Card Wars",
+        "Conquest of Cuteness",
+        "Dad's Dungeon",
+        "Daddy's Little Monster",
+        "Davey",
+        "Five More Short Graybles",
+        "Five Short Graybles",
+        "Her Parents",
+        "Hug Wolf",
+        "In Your Footsteps",
+        "Incendium",
+        "Jake Suit",
+        "My Two Favorite People",
+        "One Last Job",
+        "Play Date",
+        "Power Animal",
+        "Puhoy",
+        "Slow Love",
+        "The Creeps",
+        "The Monster",
+        "The Pit",
+        "The Vault",
+        "Time Sandwich",
+        "Too Young",
+        "Video Makers",
+        "What Was Missing"
+    ],
+    "Lub Glubs": [
+        "Beautopia"
+    ],
+    "Forest Wizard": [
+        "My Two Favorite People",
+        "Reign of Gunters",
+        "Storytelling"
+    ],
+    "Pup Gang": [
+        "Lemonhope Part 2",
+        "You Made Me"
+    ],
+    "Marceline": [
+        "All the Little People",
+        "Bad Little Boy",
+        "Daddy's Little Monster",
+        "Five More Short Graybles",
+        "Go With Me",
+        "Henchman",
+        "I Remember You",
+        "It Came from the Nightosphere",
+        "King Worm",
+        "Marceline's Closet",
+        "Memory of a Memory",
+        "Mystery Dungeon",
+        "Power Animal",
+        "Red Starved",
+        "Return to the Nightosphere",
+        "The Duke",
+        "The Monster",
+        "The Vault",
+        "Time Sandwich",
+        "Vault of Bones",
+        "What Was Missing",
+        "Who Would Win"
+    ],
+    "Bebe": [
+        "BMO Noire"
+    ],
+    "Ogdoad": [
+        "The Suitor"
+    ],
+    "Earl of Lemongrab": [
+        "All the Little People",
+        "All Your Fault",
+        "Another Five More Short Graybles",
+        "Five More Short Graybles",
+        "King Worm",
+        "Lemonhope Part 2",
+        "Mystery Dungeon",
+        "The Duke",
+        "Too Old",
+        "Too Young",
+        "You Made Me"
+    ],
+    "Abraham Lincoln": [
+        "Animated short",
+        "Crystals Have Power",
+        "Sons of Mars",
+        "Too Young"
+    ],
+    "MOs": [
+        "Be More",
+        "In Your Footsteps",
+        "Puhoy"
+    ],
+    "Charlie": [
+        "Apple Wedding",
+        "Jake the Dad"
+    ],
+    "Ice King": [
+        "All the Little People",
+        "Animated short",
+        "Another Five More Short Graybles",
+        "Bad Little Boy",
+        "Beyond this Earthly Realm",
+        "Business Time",
+        "Conquest of Cuteness",
+        "Fionna and Cake",
+        "Five More Short Graybles",
+        "Five Short Graybles",
+        "Hitman",
+        "Holly Jolly Secrets Part I",
+        "Holly Jolly Secrets Part II",
+        "I Remember You",
+        "It Came from the Nightosphere",
+        "King Worm",
+        "Love Games",
+        "Loyalty to the King",
+        "Memory of a Memory",
+        "Mortal Folly",
+        "Mortal Recoil",
+        "Mystery Train",
+        "Play Date",
+        "Princess Potluck",
+        "Prisoners of Love",
+        "Puhoy",
+        "Still",
+        "Thank You",
+        "The Chamber of Frozen Blades",
+        "The Eyes",
+        "The Pods",
+        "Vault of Bones",
+        "Video Makers",
+        "When Wedding Bells Thaw",
+        "Wizard Battle"
+    ],
+    "Gummy": [
+        "The Silent King"
+    ],
+    "Penguins": [
+        "Animated short",
+        "Another Five More Short Graybles",
+        "It Came from the Nightosphere",
+        "Prisoners of Love",
+        "Rainy Day Daydream"
+    ],
+    "Stanley": [
+        "The Jiggler"
+    ],
+    "Blastronaut": [
+        "Hitman"
+    ],
+    "Mini Queen": [
+        "His Hero"
+    ],
+    "Kim Kil Whan": [
+        "Apple Wedding",
+        "Jake the Dad"
+    ],
+    "Ogre": [
+        "Root Beer Guy"
+    ],
+    "Barb": [
+        "Web Weirdos"
+    ],
+    "Swamp Giant": [
+        "Business Time"
+    ],
+    "Bob Rainicorn": [
+        "Her Parents"
+    ],
+    "Tree Stump With Sign": [
+        "Another Way"
+    ],
+    "Prismo": [
+        "Time Sandwich"
+    ],
+    "Spider": [
+        "Marceline's Closet"
+    ],
+    "Gumball Guardian": [
+        "Apple Thief",
+        "Reign of Gunters",
+        "Ricardio the Heart Guy",
+        "Sky Witch",
+        "Slumber Party Panic",
+        "The Suitor",
+        "The Vault"
+    ],
+    "Manfried": [
+        "Bad Timing",
+        "Slumber Party Panic",
+        "Too Young"
+    ],
+    "Fire Wolves": [
+        "Jake Suit",
+        "Thank You",
+        "The Red Throne"
+    ],
+    "Cloud People": [
+        "My Two Favorite People"
+    ],
+    "Duchess of Nuts": [
+        "Henchman",
+        "The Duke"
+    ],
+    "Flying Lettuce Brothers": [
+        "My Two Favorite People",
+        "One Last Job"
+    ],
+    "Blargetha": [
+        "Love Games"
+    ],
+    "Three Wise Men": [
+        "Ocean of Fear"
+    ],
+    "Sir Slicer": [
+        "Blood Under the Skin",
+        "BMO Lost"
+    ],
+    "Skeleton Army": [
+        "Henchman"
+    ],
+    "Soft People": [
+        "Bad Little Boy"
+    ],
+    "Death": [
+        "Death in Bloom",
+        "Sons of Mars"
+    ],
+    "Blanket Dragon": [
+        "Puhoy"
+    ],
+    "Townspeople": [
+        "His Hero"
+    ],
+    "Lyre Player": [
+        "Blood Under the Skin",
+        "Rainy Day Daydream"
+    ],
+    "Bellamy Bug": [
+        "Rainy Day Daydream"
+    ],
+    "Old Man": [
+        "Animated short"
+    ],
+    "Lorraine": [
+        "BMO Noire",
+        "Time Sandwich"
+    ],
+    "Snow Men": [
+        "Holly Jolly Secrets Part II"
+    ],
+    "Bufo": [
+        "Reign of Gunters",
+        "Wizard Battle"
+    ],
+    "Peppermint Butler": [
+        "Death in Bloom",
+        "Five Short Graybles",
+        "In Your Footsteps",
+        "King Worm",
+        "Mortal Recoil",
+        "No One Can Hear You",
+        "Princess Cookie",
+        "Return to the Nightosphere",
+        "Sky Witch",
+        "The Real You",
+        "The Suitor",
+        "The Vault",
+        "Too Young",
+        "You Made Me"
+    ],
+    "Guardian Angel": [
+        "The Suitor"
+    ],
+    "Science Cat": [
+        "My Two Favorite People"
+    ],
+    "Gareth": [
+        "My Two Favorite People",
+        "One Last Job"
+    ],
+    "Dumb Rock": [
+        "Dad's Dungeon"
+    ],
+    "Iceclops": [
+        "Animated short",
+        "Prisoners of Love"
+    ],
+    "Fire Elemental": [
+        "Animated short"
+    ],
+    "Stag": [
+        "No One Can Hear You",
+        "Sons of Mars"
+    ],
+    "Roselinen": [
+        "Puhoy"
+    ],
+    "Crystal Guardian": [
+        "Crystals Have Power"
+    ],
+    "Hamburger Monster": [
+        "Dad's Dungeon"
+    ],
+    "Giant Goo Skull": [
+        "We Fixed a Truck"
+    ],
+    "Science": [
+        "From Bad to Worse"
+    ],
+    "Phil": [
+        "King Worm"
+    ],
+    "Wizard Students": [
+        "Wizard Battle"
+    ],
+    "Chet": [
+        "The Real You"
+    ],
+    "Fat Villagers": [
+        "The Monster"
+    ],
+    "Doctor Princess": [
+        "Mortal Recoil",
+        "Princess Cookie",
+        "The Chamber of Frozen Blades"
+    ],
+    "Flame King": [
+        "Burning Low",
+        "Ignition Point",
+        "Incendium",
+        "The Red Throne",
+        "Vault of Bones"
+    ],
+    "Business Men": [
+        "Business Time"
+    ],
+    "Brad": [
+        "Bad Timing",
+        "My Two Favorite People",
+        "The Creeps",
+        "Trouble in Lumpy Space"
+    ],
+    "Knights": [
+        "Blood Under the Skin"
+    ],
+    "Eberhardt": [
+        "Henchman"
+    ],
+    "Wizard Bill": [
+        "Five More Short Graybles"
+    ],
+    "Gumball Guard": [
+        "Rattleballs"
+    ],
+    "Beautiful Lady": [
+        "Hug Wolf"
+    ],
+    "Ann": [
+        "Candy Streets"
+    ],
+    "Abracadaniel": [
+        "All the Little People",
+        "Play Date",
+        "Wizard Battle"
+    ],
+    "Petey": [
+        "Candy Streets"
+    ],
+    "Old Wizards": [
+        "Wizard Battle"
+    ],
+    "Dream Warrior": [
+        "Who Would Win"
+    ],
+    "Tree Witch": [
+        "To Cut a Woman's Hair"
+    ],
+    "Candy Person 10": [
+        "Mystery Train",
+        "Root Beer Guy"
+    ],
+    "Ed": [
+        "Web Weirdos"
+    ],
+    "Quilton": [
+        "Puhoy"
+    ],
+    "Mountain Man": [
+        "Memories of Boom Boom Mountain"
+    ],
+    "Rock People": [
+        "The Chamber of Frozen Blades"
+    ],
+    "Gunter": [
+        "Bad Little Boy",
+        "Five More Short Graybles",
+        "Five Short Graybles",
+        "Holly Jolly Secrets Part II",
+        "I Remember You",
+        "It Came from the Nightosphere",
+        "Mystery Train",
+        "Reign of Gunters",
+        "Still",
+        "The Chamber of Frozen Blades"
+    ],
+    "Party Bears": [
+        "My Two Favorite People"
+    ],
+    "Momma Bear": [
+        "Storytelling"
+    ],
+    "Fear Feaster": [
+        "Billy's Bucket List",
+        "King Worm",
+        "Ocean of Fear"
+    ],
+    "Fight King": [
+        "Morituri Te Salutamus"
+    ],
+    "Stormo": [
+        "Princess Cookie"
+    ],
+    "Melissa": [
+        "My Two Favorite People",
+        "Trouble in Lumpy Space"
+    ],
+    "Baby Pigs": [
+        "The Pods"
+    ],
+    "Pan": [
+        "Another Way"
+    ],
+    "Jermaine": [
+        "Crystals Have Power"
+    ],
+    "Torcho": [
+        "Ignition Point"
+    ],
+    "Monster": [
+        "Belly of the Beast"
+    ],
+    "Snail": [
+        "Be More",
+        "Blood Under the Skin",
+        "Ignition Point",
+        "In Your Footsteps",
+        "Mortal Folly",
+        "Mortal Recoil",
+        "Storytelling",
+        "The Monster",
+        "Trouble in Lumpy Space",
+        "Video Makers"
+    ],
+    "Gnome Ruler": [
+        "Power Animal"
+    ],
+    "Lemongrab 2": [
+        "All Your Fault",
+        "Another Five More Short Graybles",
+        "Lemonhope Part 2",
+        "Too Old",
+        "You Made Me"
+    ],
+    "Bear": [
+        "His Hero",
+        "In Your Footsteps"
+    ],
+    "Cuties": [
+        "Conquest of Cuteness"
+    ],
+    "Princess Bubblegum": [
+        "A Glitch is a Glitch",
+        "All the Little People",
+        "All Your Fault",
+        "Animated short",
+        "Apple Wedding",
+        "Bad Timing",
+        "Business Time",
+        "Candy Streets",
+        "Death in Bloom",
+        "Dream of Love",
+        "Fionna and Cake",
+        "Five Short Graybles",
+        "From Bad to Worse",
+        "Go With Me",
+        "I Remember You",
+        "In Your Footsteps",
+        "Incendium",
+        "James",
+        "King Worm",
+        "Lemonhope Part 2",
+        "Mortal Folly",
+        "Mystery Train",
+        "No One Can Hear You",
+        "Power Animal",
+        "Princess Cookie",
+        "Reign of Gunters",
+        "Ricardio the Heart Guy",
+        "Root Beer Guy",
+        "Sky Witch",
+        "Slumber Party Panic",
+        "Thank You",
+        "The Creeps",
+        "The Duke",
+        "The Other Tarts",
+        "The Real You",
+        "The Red Throne",
+        "The Suitor",
+        "Time Sandwich",
+        "To Cut a Woman's Hair",
+        "Too Old",
+        "Too Young",
+        "Trouble in Lumpy Space",
+        "Video Makers",
+        "What Was Missing",
+        "Wizard Battle"
+    ],
+    "Lumpy Space Princess": [
+        "All the Little People",
+        "Apple Wedding",
+        "Burning Low",
+        "Business Time",
+        "Candy Streets",
+        "Conquest of Cuteness",
+        "Five Short Graybles",
+        "From Bad to Worse",
+        "His Hero",
+        "Hitman",
+        "Holly Jolly Secrets Part II",
+        "Ignition Point",
+        "It Came from the Nightosphere",
+        "King Worm",
+        "Loyalty to the King",
+        "My Two Favorite People",
+        "Prisoners of Love",
+        "Ricardio the Heart Guy",
+        "The Creeps",
+        "The Monster",
+        "The Other Tarts",
+        "Time Sandwich",
+        "To Cut a Woman's Hair",
+        "Trouble in Lumpy Space",
+        "Vault of Bones",
+        "Video Makers",
+        "Who Would Win"
+    ],
+    "Aquandrius": [
+        "The Limit"
+    ],
+    "Ancient Psychic Tandem War Elephant": [
+        "The Limit"
+    ],
+    "Ash": [
+        "Memory of a Memory",
+        "Sky Witch"
+    ],
+    "Ninjas": [
+        "Animated short"
+    ],
+    "Cuber": [
+        "Five Short Graybles",
+        "Too Old"
+    ],
+    "Gunthalina": [
+        "Princess Potluck"
+    ],
+    "Duke of Nuts": [
+        "Henchman",
+        "The Duke"
+    ],
+    "Ricardio": [
+        "Ricardio the Heart Guy",
+        "The Duke"
+    ],
+    "Gladiator Ghost": [
+        "Morituri Te Salutamus"
+    ],
+    "President Porpoise": [
+        "Burning Low"
+    ],
+    "Hot Dog Monster": [
+        "Dad's Dungeon"
+    ],
+    "Cinnamon Bun": [
+        "Apple Wedding",
+        "Conquest of Cuteness",
+        "Dream of Love",
+        "Five More Short Graybles",
+        "Five Short Graybles",
+        "From Bad to Worse",
+        "Hug Wolf",
+        "In Your Footsteps",
+        "Power Animal",
+        "Sky Witch",
+        "The Creeps",
+        "The Other Tarts",
+        "The Red Throne",
+        "The Suitor",
+        "Time Sandwich",
+        "Too Old"
+    ],
+    "Gnome Knight": [
+        "The Hard Easy",
+        "The Pods"
+    ],
+    "Xergiok": [
+        "The Silent King"
+    ],
+    "The Beast": [
+        "The Suitor"
+    ],
+    "Flambo": [
+        "Business Time",
+        "Ignition Point",
+        "Incendium",
+        "The Chamber of Frozen Blades",
+        "The Real You"
+    ],
+    "Butterfly With Laser Gun": [
+        "The Other Tarts"
+    ],
+    "Battle Cube": [
+        "Business Time"
+    ],
+    "Party Pat": [
+        "Belly of the Beast",
+        "Billy's Bucket List"
+    ],
+    "Naked Wizard": [
+        "Memories of Boom Boom Mountain"
+    ],
+    "Marauders": [
+        "Burning Low",
+        "It Came from the Nightosphere",
+        "Memories of Boom Boom Mountain",
+        "Who Would Win"
+    ]
+}

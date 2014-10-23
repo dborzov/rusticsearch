@@ -22,10 +22,22 @@ func RemoveDashesEdits(word string) []string {
 	}
 }
 
-func ExtraLetterEdits(word string) []string {
-	var variations []string
-	for i := 1; i <= utf8.RuneCountInString(word); i++ {
-		variations = append(variations, word[:i-1]+word[i:])
+func ExtraLetterEdits(word string) (variations []string) {
+	count := utf8.RuneCountInString(word)
+	// ignore first and last letter, usually you dont miss them in a typo
+	if count < 3 {
+		return
+	}
+	for i := 1; i < count-1; i++ {
+		variations = append(variations, word[:i]+word[i+1:])
+	}
+	return variations
+}
+
+func SplitWordsEdit(word string) []string {
+	variations := strings.Split(word, " ")
+	if len(variations) < 2 {
+		return []string{}
 	}
 	return variations
 }

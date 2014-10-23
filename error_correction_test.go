@@ -49,7 +49,7 @@ func TestMultipleRemoveDashesEdits(t *testing.T) {
 
 func TestExtraLetterEdits(t *testing.T) {
 	in := "ABBA"
-	out := []string{"BBA", "ABA", "ABA", "ABB"}
+	out := []string{"ABA", "ABA"}
 
 	x := ExtraLetterEdits(in)
 
